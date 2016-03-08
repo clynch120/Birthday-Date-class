@@ -1,2 +1,2 @@
 # Birthday-Date-class
-School project. creating classes
+School project. Creating classes
