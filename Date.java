@@ -31,22 +31,16 @@ public class Date
 
 	public String toString()
 	{
-		return this.month + " / " + this.day;
+		return this.month + "/" + this.day;
 	}
 	
-	public boolean equals(Date d) {
-		if (this == d)
+	public boolean equals(Date d) 
+	{
+		if (d.getMonth() == getMonth() && d.getDay() == getDay())
+		{
 			return true;
-		if (d == null)
-			return false;
-		if (getClass() != d.getClass())
-			return false;
-		Date other = (Date) d;
-		if (day != other.day)
-			return false;
-		if (month != other.month)
-			return false;
-		return true;
+		}
+		else return false;
 	}
 
 	public int daysInMonth() 
@@ -80,5 +74,14 @@ public class Date
 	public void nextDay() 
 	{
 		day++;
+		if (day > daysInMonth())
+		{
+			day = 1;
+			month++;
+			if (month > 12)
+			{
+				month = 1;
+			}
+		}
 	}
 }
