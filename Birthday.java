@@ -1,15 +1,16 @@
 //Charles Lynch
 //Birthday class
+
 import java.util.Scanner;
 
-public class Birthday 
+public class Birthday
 {
 
 	public static void main(String[] args) 
 	{
-		System.out.println(todaysDate().equals(yourBirthday()));	// check to see if I have done equals right
-		
+		getResult(todaysDate(), yourBirthday());
 	}
+	
 	// ask user for date
 	public static Date todaysDate()
 	{
@@ -20,6 +21,7 @@ public class Birthday
 		Date today = new Date (month, day);
 		return today;
 	}
+	
 	// ask user for their birthday
 	public static Date yourBirthday()
 	{
@@ -31,5 +33,24 @@ public class Birthday
 		s.close();
 		return birth;
 	}
-
+	// shows how many days until your birthday
+	public static void getResult(Date todaysDate, Date yourBirthday)
+	{
+		System.out.println("There are " + todaysDate.daysInMonth() + " days in month #" + todaysDate.getMonth());
+		int daysUntil = 0;
+		while (false == todaysDate.equals(yourBirthday))
+		{
+			daysUntil++;
+			todaysDate.nextDay();
+		}
+		if (daysUntil == 0)
+		{
+			System.out.println("Happy birthday!");
+		}
+		else
+		{
+			System.out.println("Numbers of days untill birthday " + yourBirthday.toString() + " : " + daysUntil);
+		}
+	}
+	
 }
